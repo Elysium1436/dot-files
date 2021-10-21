@@ -55,7 +55,7 @@ cmp.setup({
 	  ['<C-f>'] = cmp.mapping.scroll_docs(4),
 	  ['<C-Space>'] = cmp.mapping.complete(),
 	  ['<C-e>'] = cmp.mapping.close(),
-	  ['<CR>'] = cmp.mapping.confirm(),
+	 -- ['<CR>'] = cmp.mapping.confirm(),
 	  ['<Tab>'] = cmp.mapping(next_item, { "i", "s"}),
 	  ['<S-Tab>'] = cmp.mapping(previous_item, { "i", "s"})
 	},
@@ -69,10 +69,19 @@ cmp.setup({
 		}
 	})
 
---require("nvim-autopairs.completion.cmp").setup({
---  map_cr = true, --  map <CR> on insert mode
---  map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
---  auto_select = false, -- automatically select the first item
---  insert = false, -- use insert confirm behavior instead of replace
--- })
+		require("nvim-autopairs.completion.cmp").setup({
+			map_cr = true, --  map <CR> on insert mode
+			map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
+			auto_select = true, -- automatically select the first item
+			insert = false, -- use insert confirm behavior instead of replace
+			map_char = { -- modifies the function or method delimiter by filetypes
+			all = '(',
+			tex = '{'
+			}
+		})
+
+
+
+
+
 EOF

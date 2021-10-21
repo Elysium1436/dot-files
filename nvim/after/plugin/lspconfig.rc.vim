@@ -3,5 +3,5 @@ if !exists('g:lspconfig')
 endif
 
 lua << EOF
-local nvim_lsp = require('lspconfig')
+-- local nvim_lsp = require('lspconfig')
 EOF
